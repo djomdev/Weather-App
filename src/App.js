@@ -16,7 +16,9 @@ class App extends React.Component{
     country: undefined,
     humidity: undefined,
     description: undefined,
-    error: undefined
+    error: undefined,
+    longitud: undefined,
+    latitud: undefined
   }
 
 
@@ -32,19 +34,25 @@ class App extends React.Component{
       // console.log(data);
       this.setState({
         temperature: data.main.temp,
+        pressure: data.main.pressure,
         city: data.name,
         country: data.sys.country,
         humidity: data.main.humidity,
         description: data.weather[0].description,
+        longitud: data.coord.lon,
+        latitud: data.coord.lat,
         error: ""
       });
     } else {
       this.setState({
         temperature: undefined,
+        pressure: undefined,
         city: undefined,
         country: undefined,
         humidity: undefined,
         description: undefined,
+        longitud: undefined,
+        latitud: undefined,
         error: "Please enter the values"
     })
   }
@@ -64,10 +72,13 @@ class App extends React.Component{
                   <Form getWeather={this.getWeather} />
                   <Weather
                     temperature={this.state.temperature}
+                    pressure={this.state.pressure}
                     humidity={this.state.humidity}
                     city={this.state.city}
                     country={this.state.country}
                     description={this.state.description}
+                    longitud={this.state.longitud}
+                    latitud={this.state.latitud}
                     error={this.state.error}
                   />
                 </div>

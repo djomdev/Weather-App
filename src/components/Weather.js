@@ -12,6 +12,10 @@ const Weather = (props) => {
 
             {props.description && <p>Conditions: {props.description}</p>}
 
+            {props.longitud && <p>Longitud: {props.longitud}</p>}
+
+            {props.latitud && <p>Latitud: {props.latitud}</p>}
+
             {props.error && <p>{props.error}</p>}
 
         </section>
